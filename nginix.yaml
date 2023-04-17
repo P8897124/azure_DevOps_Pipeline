@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: basic-pod
+spec:
+  containers:
+    - name: basic
+      image: nginx
+      volumeMounts:
+      - name: basic-config
+        mountPath: /etc/nginx/conf.d
+  volumes:
+    - name: basic-config
+      configMap:
+        name: basic-config
